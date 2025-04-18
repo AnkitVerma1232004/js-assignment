@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Longest Palindrome</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f9;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .input {
+      width: 90%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      outline: none;
+    }
+
+    .input:focus {
+      border-color: #6c5ce7;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #6c5ce7;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #5a4bcf;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .result strong {
+      color: #6c5ce7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="text" class="input" placeholder="Enter a string" />
+    <br />
+    <button class="btn" onclick="(function() {
+      let inputElement = document.querySelector('.input');
+      let outputElement = document.querySelector('.result');
+      let input = inputElement.value;
+
+      if (input.length === 0) {
+        outputElement.innerHTML = 'Please enter a string.';
+      } else {
+        let result = longestPalindrome(input);
+        outputElement.innerHTML = 'Longest Palindromic Substring: <strong>' + result + '</strong>';
+      }
+    })()">Submit</button>
+    <p class="result"></p>
+  </div>
+
+  <script>
+    function longestPalindrome(s) {
+      let start = 0, maxLen = 1;
+      let n = s.length;
+
+      for (let i = 0; i < n; i++) {
+        let l = i, r = i;
+        while (l >= 0 && r < n && s[l] === s[r]) {
+          if (r - l + 1 > maxLen) {
+            maxLen = r - l + 1;
+            start = l;
+          }
+          l--;
+          r++;
+        }
+
+        l = i;
+        r = i + 1;
+        while (l >= 0 && r < n && s[l] === s[r]) {
+          if (r - l + 1 > maxLen) {
+            maxLen = r - l + 1;
+            start = l;
+          }
+          l--;
+          r++;
+        }
+      }
+
+      return s.substring(start, start + maxLen);
+    }
+  </script>
+</body>
+</html>
