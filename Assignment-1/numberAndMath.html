@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Numbers and Math</title>
+  <link rel="stylesheet" href="numberAndMath.css">
+</head>
+<body>
+  <input type="number" class="input" placeholder="Enter amount" />
+  <br /><br />
+  <button onclick="currencyCode = 'USD'">USD</button>
+  <button onclick="currencyCode = 'EUR'">EUR</button>
+  <button onclick="currencyCode = 'INR'">INR</button>
+  <br /><br />
+  <button onclick="
+    let input = document.querySelector('.input').value;
+    document.querySelector('.output').innerHTML = formatCurrency(parseFloat(input), currencyCode);
+  ">Submit</button>
+
+  <p class="output">hello</p>
+
+  <script src="numberAndMath.js"></script>
+</body>
+</html>
