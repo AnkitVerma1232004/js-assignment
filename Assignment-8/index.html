@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>My List</h1>
+        <ul id="myList">
+            <li class="item" onclick="this.remove();">Item 1</li>
+            <li class="item" onclick="this.remove();">Item 2</li>
+            <li class="item" onclick="this.remove();">Item 3</li>
+        </ul>
+        <button id="addButton" onclick="
+            addItemLi();
+        ">Add Item</button>
+    </div>
+    <script>
+        function addItemLi(){
+        
+            let ulList= document.querySelector("#myList");
+            ulList.innerHTML+='<li class="item" onclick="this.remove();">New Item</li>';
+        }
+        addItemLi();
+    </script>
+</body>
+</html>

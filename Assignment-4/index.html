@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let gloabalVar = 10; // Global variable declaration
+
+        function myFunction() {
+            let localVar = 20; // Local variable declaration
+            console.log("Inside function: " + gloabalVar); // Accessing global variable
+            console.log("Inside function: " + localVar); // Accessing local variable
+        }
+
+        myFunction(); 
+
+        {
+            let blockVar = 30; // Block-scoped variable declaration
+            console.log("Inside block: " + blockVar); // Accessing block-scoped variable
+        }
+        let shadowing = 90;
+        function anotherFunction() {
+            let shadowing = 69;
+            console.log("Inside anotherFunction: " + shadowing); // Accessing local variable (shadowing)
+        }
+        anotherFunction();
+    </script>    
+</body>
+</html>

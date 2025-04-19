@@ -1,4 +1,4 @@
-let currencyCode = 'USD';
+let currencyCode = 'INR';
 
 function formatCurrency(amount, currencyCode) {
   let symbol = '';

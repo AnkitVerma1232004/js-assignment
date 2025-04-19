@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let book ={
+            title:'',
+            author:'',
+            ISBN:'',
+            isBorrowed:false,
+            borrow(){
+                this.isBorrowed = true;
+            },
+            returnBook(){
+                this.isBorrowed = false;
+            }
+        };
+        let library ={
+            books:[],
+            addBook(book){
+                this.books.push(book);
+            },
+            findBookByISBN(ISBN){
+                for(let i=0; i<this.books.length;i++){
+                    if(this.books[i].ISBN === ISBN){
+                        return this.books[i].title;
+                    }
+                }
+                return 'not found';
+            },
+            listAvailableBooks(){
+                list=[];
+                for(let i=0;i<this.books.length;i++){
+                    if(!this.books[i].isBorrowed){
+                        list.push(this.books[i]);
+                    }
+                }
+                return list;
+            },
+            listBorrowedBooks(){
+                list=[];
+                for(let i=0;i<this.books.length;i++){
+                    if(this.books[i].isBorrowed){
+                        list.push(this.books[i]);
+                    }
+                }
+                return list;
+            }
+            
+        };
+
+        function newBook(title,author,ISBN){
+            let newBook = JSON.parse(JSON.stringify(book));
+            newBook.title = title;
+            newBook.author = author;
+            newBook.ISBN = ISBN;
+            return newBook;
+        }
+        library.addBook(newBook('The Great Gatsby','F. Scott Fitzgerald','1'));
+        library.addBook(newBook('To Kill a Mockingbird','Harper Lee','987654321'));
+        library.addBook(newBook('1984','George Orwell','456789123'));   
+        library.addBook(newBook('The Catcher in the Rye','J.D. Salinger','321654987'));
+        console.log(library.listAvailableBooks());
+        library.books[0].borrow();;
+        console.log(library.listAvailableBooks());
+        
+        console.log(library.listBorrowedBooks());
+        console.log(library.findBookByISBN('1'));
+    </script>
+</body>
+</html>

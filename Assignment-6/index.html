@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function createCalculator(){
+            return {
+                add(a,b){
+                    return a+b;
+                },
+                subtract(a,b){
+                    return a-b;
+                },
+                multiply(a,b){
+                    return a*b;
+                },
+                divide(a,b){
+                    return a/b;
+                },
+
+            };
+        }
+        let calculator = createCalculator();
+        console.log(calculator.add(5, 3)); 
+    </script>
+</body>
+</html>

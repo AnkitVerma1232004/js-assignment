@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function evaluateConditions(obj){
+            if(obj.age >18 && obj.hasLicense){
+                return "Eligible to drive";
+            }
+            if(obj.temperature > 30 || obj.humidity > 70){
+                return "Warning: High discomfort level";
+            }
+            if(obj.role === "admin" || obj.role === "editor" && obj.isActive){
+                return "Access granted";
+            }
+        }
+
+        obj= {
+            age: 20,
+            hasLicense: true,
+            temperature: 35,
+            humidity: 80,
+            role: "admin",
+            isActive: true
+        };
+        obj2= {
+            
+            temperature: 60,
+            humidity: 300,
+            
+        };
+        obj3= {
+            
+            
+            role: "editor",
+            isActive: true,
+        };
+
+        console.log(evaluateConditions(obj));
+        console.log(evaluateConditions(obj2));
+        console.log(evaluateConditions(obj3));
+    </script>
+</body>
+</html>

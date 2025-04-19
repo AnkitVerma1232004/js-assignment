@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .output{
+            font: bold 50px sans-serif;
+            color: #6223c7;
+            padding-top: 10px;
+            padding-bottom:10px;
+            display:block;
+            margin-left: 142px;
+        }
+        button{
+            font-size: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: 15px;
+            border-radius: 20px;
+            box-shadow: 3px 2px 5px rgba(0,0,0,0.5);
+            
+        }
+        .Increment-button{
+            background-color: #4CAF50; 
+            color: white;
+            border-style: solid;
+        }
+        .Decrement-button{
+            background-color: #f44336; 
+            color: white;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <span class="js-output output">0</span>
+    <button onclick="
+    counter(+1);
+    " class="Increment-button">
+        Increment
+    </button>
+    <button onclick="
+    counter(-1);
+    " class="Decrement-button">
+        Decrement
+    </button>
+    <script>
+        let count = 0;
+        function counter(i) {
+            count+=i;
+            if(count<0){
+                count=0;
+            }
+            document.querySelector(".js-output").innerHTML = count;
+        }
+    </script>
+</body>
+</html>

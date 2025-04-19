@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function processTransaction(transactions){
+            let total={
+                credit:0,
+                debit:0,
+                balance:0,
+            }
+            for(let i=0;i<transactions.length;i++){
+                if(transactions[i].type==='credit'){
+                    total.balance+=transactions[i].amount;
+                    total.credit+=transactions[i].amount;
+                }
+                else if(transactions[i].type==='debit'){
+                    total.balance-=transactions[i].amount;
+                    total.debit+=transactions[i].amount;
+                }
+            }
+            return balance;
+        }
+    </script>
+</body>
+</html>

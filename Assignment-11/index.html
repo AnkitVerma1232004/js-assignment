@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function groupByCategory(products, categoryKey) {
+            let result = {};
+            for (let i = 0; i < products.length; i++) {
+                let category = products[i][categoryKey];
+                if (!result[category]) {
+                    result[category] = [];
+                }
+                result[category].push(products[i]);
+            }
+            return result;
+        }
+
+        let products = [
+            { name: 'Laptop', category: 'Electronics', price: 1200 },
+            { name: 'T-Shirt', category: 'Apparel', price: 25 },
+            { name: 'Mouse', category: 'Electronics', price: 30 },
+            { name: 'Jeans', category: 'Apparel', price: 70 },
+        ];
+
+        console.log(groupByCategory(products, 'category'));
+                
+    </script>    
+</body>
+</html>
